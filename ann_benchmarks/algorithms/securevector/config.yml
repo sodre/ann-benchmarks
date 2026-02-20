@@ -1,5 +1,5 @@
 float:
-  any:
+  euclidean:
   - base_args: ['@metric']
     constructor: SecureVector
     disabled: false
@@ -10,5 +10,18 @@ float:
       HNSW:
         args:
           M: [8, 16, 24]
+          efConstruction: [200]
+        query_args: [[10, 20, 30, 40, 60, 80, 120, 200, 400, 600, 800]]
+  angular:
+  - base_args: ['@metric']
+    constructor: SecureVector
+    disabled: false
+    docker_tag: ann-benchmarks-securevector
+    module: ann_benchmarks.algorithms.securevector
+    name: securevector
+    run_groups:
+      HNSW:
+        args:
+          M: [24, 48, 64]
           efConstruction: [200]
         query_args: [[10, 20, 30, 40, 60, 80, 120, 200, 400, 600, 800]]
